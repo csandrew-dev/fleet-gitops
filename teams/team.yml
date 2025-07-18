@@ -7,7 +7,7 @@
 # Then add that secret to .github/workflows/workflow.yml as an env variable.
 # The secret name in the YAML file must match the secret name in GitHub Actions secrets.
 
-name: Engineering
+name: Team Team
 policies:
   - path: ../lib/macos/policies/macos-device-health.policies.yml
   - path: ../lib/windows/policies/windows-device-health.policies.yml
@@ -21,15 +21,12 @@ controls:
   macos_settings:
     custom_settings:
       - path: ../lib/macos/configuration-profiles/disable-bluetooth-file-sharing.mobileconfig
-  macos_updates:
-    deadline: "2025-07-30"
-    minimum_version: "15.5.1"
   scripts:
     - path: ../lib/macos/scripts/remove-zoom-artifacts.script.sh
     - path: ../lib/macos/scripts/set-timezone.script.sh
 team_settings:
   secrets:
-    - secret: "$FLEET_WORKSTATIONS_ENROLL_SECRET"
+    - secret: "$FLEET_ENGINEERING_ENROLL_SECRET"
   features:
     enable_host_users: true
     enable_software_inventory: true
